@@ -2,6 +2,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
@@ -16,6 +18,21 @@ require("dotenv").config();
 app.use(morgan("common"));
 app.use(helmet());
 app.use(express.json());
+app.use(cors());
+
+// MongoDB
+
+mongoose.connect(
+  process.env.MONGO_URI,
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  },
+  (err) => {
+    if (err) console.error(err);
+    console.log("DB Connnected!!");
+  }
+);
 
 // Routes
 app.use("/", loginRouters);
@@ -24,6 +41,7 @@ app.use(errorHandling);
 
 const PORT = process.env.PORT || 5050;
 
+// Listening
 app.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}`);
 });

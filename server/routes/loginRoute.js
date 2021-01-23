@@ -6,14 +6,30 @@
 const experss = require("express");
 const router = experss.Router();
 
-router.get("/login", (req, res) => {
-  res.json({
-    msg: "Login",
-  });
+const userModel = require("../models/userDetails");
+
+router.get("/login", async (req, res, next) => {
+  try {
+    const allUsers = await userModel.find();
+    res.json(allUsers);
+  } catch (error) {
+    console.log(error.name);
+    next(error);
+  }
+});
+
+router.post("/login", async (req, res, next) => {
+  try {
+    console.log(req.body);
+  } catch (error) {
+    console.log(error.name);
+    next(error);
+  }
 });
 
 router.post("/signup", (req, res) => {
-  res.json({ msg: `Waiting for response ${req.body}` });
+  console.log(req.body);
+  res.json({ msg: `Waiting for response ${JSON.stringify(req.body)}` });
 });
 
 module.exports = router;
