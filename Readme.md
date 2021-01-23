@@ -18,7 +18,8 @@ Feature mixed from all the famous Social media apps out there. Discord, Tinder ,
 9. `JWT` ✅
 10. `Socket.io` ✅
 11. `CORS` ✅
-12. .... to be continued
+12. `Joi` ✅
+    .... to be continued
 
 <br/>
 <br/>
@@ -52,11 +53,11 @@ Feature mixed from all the famous Social media apps out there. Discord, Tinder ,
 
 ### 🎯 Back-End
 
-1. [ ] Setup listening port at 5050
-2. [ ] Setup dotenv port at 5000
-3. [ ] Create Morgan MiddleWare
-4. [ ] Create errorHandling MiddleWare
-5. [ ] Create a basic router
+1. [x] Setup listening port at 5050
+2. [x] Setup dotenv port at 5000
+3. [x] Create Morgan MiddleWare
+4. [x] Create errorHandling MiddleWare
+5. [x] Create a basic router
 6. [ ] SignUp & Login router `/login` & `/signup`
 7. [ ] Connecting the localhost Mongo from dotenv
 8. [ ] Create a
