@@ -10,6 +10,7 @@ const app = express();
 // Importing custom modules
 const { notfound, errorHandling } = require("./errors/middleware");
 const loginRouters = require("./routes/loginRoute");
+const privateRouters = require("./routes/privateRoute");
 
 // Configuration env
 require("dotenv").config();
@@ -36,6 +37,7 @@ mongoose.connect(
 
 // Routes
 app.use("/user", loginRouters);
+app.use("/private", privateRouters);
 app.use(notfound);
 app.use(errorHandling);
 
