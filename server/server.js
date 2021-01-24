@@ -35,7 +35,7 @@ mongoose.connect(
 );
 
 // Routes
-app.use("/", loginRouters);
+app.use("/user", loginRouters);
 app.use(notfound);
 app.use(errorHandling);
 
