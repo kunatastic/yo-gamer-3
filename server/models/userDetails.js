@@ -1,20 +1,27 @@
 const mongoose = require("mongoose");
-const joi = require("joi");
-
-const trueString = {
-  type: String,
-  required: true,
-};
 
 const userSchema = new mongoose.Schema(
   {
-    name: trueString,
-    password: { trueString, minlength: 4 },
-    username: { trueString, unique: true },
-    email: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      minlength: 6,
+      maxlength: 255,
+    },
+    email: {
+      type: String,
+      required: true,
+      minlength: 6,
+      maxlength: 255,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 4,
+      maxlength: 1024,
+    },
   },
   { timestamps: true }
 );
 
-const userModel = mongoose.Model("user-info", userSchema);
-module.exports = { userModel, schemaValidator };
+module.exports = mongoose.model("users-info", userSchema);

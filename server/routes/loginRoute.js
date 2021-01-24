@@ -20,7 +20,10 @@ router.get("/login", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
-    console.log(req.body);
+    const user = new userModel(req.body);
+    const newUser = await user.save();
+    res.json(newUser);
+    // console.log(newUser);
   } catch (error) {
     console.log(error.name);
     next(error);

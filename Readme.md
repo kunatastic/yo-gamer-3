@@ -19,6 +19,7 @@ Feature mixed from all the famous Social media apps out there. Discord, Tinder ,
 10. `Socket.io` ✅
 11. `CORS` ✅
 12. `Joi` ✅
+13. `joigoose` ✅
     .... to be continued
 
 <br/>
